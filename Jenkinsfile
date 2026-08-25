@@ -2,10 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+
+        stage('Checkout') {
             steps {
-                echo 'Hello from Jenkins!'
+                echo 'Checking out source code...'
+                checkout scm
             }
         }
+
+        stage('Build') {
+            steps {
+                echo 'Building application with Maven...'
+                sh 'mvn clean package -DskipTests'
+            }
+        }
+
     }
 }
