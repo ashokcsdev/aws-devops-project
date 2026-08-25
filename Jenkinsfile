@@ -2,14 +2,6 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Checkout') {
-            steps {
-                echo 'Checking out source code...'
-                checkout scm
-            }
-        }
-
         stage('Build') {
             steps {
                 echo 'Building application with Maven...'
@@ -17,5 +9,11 @@ pipeline {
             }
         }
 
+        stage('Docker Build') {
+            steps {
+                echo 'Building Docker image...'
+                sh 'docker build -t aws-devops-project .'
+            }
+        }
     }
 }
