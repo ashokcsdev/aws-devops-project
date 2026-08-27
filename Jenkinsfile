@@ -6,7 +6,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building application with Maven...'
-                sh 'mvn clean package -DskipTests'
+                sh 'docker run --rm -v "$PWD":/app -w /app maven:3.9-eclipse-temurin-21 mvn clean package -DskipTests'
             }
         }
 
