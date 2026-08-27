@@ -6,7 +6,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building application with Maven...'
-                sh 'docker run --rm -v "$PWD":/app -w /app maven:3.9-eclipse-temurin-21 mvn clean package -DskipTests'
+                sh '''
+                    docker run --rm \
+                      -v jenkins_home:/app \
+                      -w /app/workspace/aws-devops-pipeline \
+                      maven:3.9-eclipse-temurin-21 \
+                      mvn clean package -DskipTests
+                '''
             }
         }
 
@@ -20,9 +26,10 @@ pipeline {
         stage('Docker Push') {
             steps {
                 echo 'Pushing Docker image...'
-                sh 'docker tag aws-devops-project:latest ashoksdev/aws-devops-project:latest'
-                sh 'docker push ashoksdev/aws-devops-project:latest'
+                sh 'docker tag aws-devops-project:latest ashokcsdev/aws-devops-project:latest'
+                sh 'docker push ashokcsdev/aws-devops-project:latest'
             }
         }
+
     }
 }
