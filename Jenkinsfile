@@ -8,8 +8,8 @@ pipeline {
                 echo 'Building application with Maven...'
                 sh '''
                     docker run --rm \
-                      -v jenkins_home:/app \
-                      -w /app/workspace/aws-devops-pipeline \
+                      -v "$WORKSPACE":/app \
+                      -w /app \
                       maven:3.9-eclipse-temurin-21 \
                       mvn clean package -DskipTests
                 '''
