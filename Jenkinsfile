@@ -59,10 +59,10 @@ pipeline {
             steps {
         sh '''
             aws eks update-kubeconfig --region ap-south-1 --name aws-devops-eks
-            kubectl apply -f k8s/deployment.yaml
-            kubectl apply -f k8s/service.yaml
-            kubectl rollout restart deployment/aws-devops-app
-            kubectl rollout status deployment/aws-devops-app --timeout=180s
+            /var/jenkins_home/kubectl apply -f k8s/deployment.yaml
+            /var/jenkins_home/kubectl apply -f k8s/service.yaml
+            /var/jenkins_home/kubectl rollout restart deployment/aws-devops-app
+            /var/jenkins_home/kubectl rollout status deployment/aws-devops-app --timeout=180s
         '''
     }
 }
