@@ -16,6 +16,19 @@ pipeline {
             }
         }
 
+        stage('Terraform Validate & Plan') {
+            steps {
+                echo 'Running Terraform validation and plan...'
+                dir('terraform') {
+                    sh '''
+                        terraform init -input=false
+                        terraform fmt -check
+                        terraform validate
+                        terraform plan -input=false
+                    '''
+                }
+            }
+        }
         stage('Docker Build') {
             steps {
                 echo 'Building Docker image...'
