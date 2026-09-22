@@ -21,10 +21,10 @@ pipeline {
                 echo 'Running Terraform validation and plan...'
                 dir('terraform') {
                     sh '''
-                        terraform init -input=false
-                        terraform fmt -check
-                        terraform validate
-                        terraform plan -input=false
+                        /var/jenkins_home/terraform init -input=false
+                        /var/jenkins_home/terraform fmt -check
+                        /var/jenkins_home/terraform validate
+                        /var/jenkins_home/terraform plan -input=false
                     '''
                 }
             }
