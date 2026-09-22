@@ -9,7 +9,7 @@ pipeline {
                 sh '''
                     docker run --rm \
                       -v jenkins_home:/app \
-                      -w /app/workspace/${JOB_NAME} \
+                      -w "/app${WORKSPACE#/var/jenkins_home}" \
                       maven:3.9-eclipse-temurin-21 \
                       mvn clean package -DskipTests
                 '''
