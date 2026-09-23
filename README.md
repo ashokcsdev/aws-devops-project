@@ -48,7 +48,7 @@ Build
 
 ### Latest Verified Build
 
-`Build #37 — SUCCESS` `
+Build #38 — SUCCESS
 
 ### Maven Build
 
@@ -64,7 +64,7 @@ The current pipeline therefore performs application build and packaging without 
 
 ### Docker Hub
 
-``text
+```text
 ashokcsdev/aws-devops-project:latest
 ```
 
@@ -72,13 +72,13 @@ Docker Hub is used as a `Secondary Public Registry` .
 
 ### Amazon ECR
 
-``text
+```text
 839084984521.dkr.ecr.ap-south-1.amazonaws.com/aws-devops-project:latest
 ```
 
 Amazon ECR is the `Primary Deployment Registry`.
 
-The Kubernetes deployment manifest and the running KES deployment have been verified to use this ECR image.
+The Kubernetes deployment manifest and the running EKS deployment have been verified to use this ECR image.
 
 ### Deployment Path
 
@@ -296,7 +296,7 @@ The project uses AWS Identity and Access Management (IAM) roles for CI/CD and in
 
 The following implementation evidence was verified during the project:
 
-- **Jenkins Build #37:** SUCCESS
+- **Jenkins Build #38:** SUCCESS
 - **Amazon EKS Deployment:** `aws-devops-app` verified at 2/2 Ready and 2 Available
 - **Amazon ECR:** ECR image verified as the running application image
 - **CloudWatch:** `amazon-cloudwatch-observability` add-on ACTIVE with no health issues
