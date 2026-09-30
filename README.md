@@ -48,7 +48,7 @@ Build
 
 ### Latest Verified Build
 
-Build #38 — SUCCESS
+Build #40 — SUCCESS
 
 ### Maven Build
 
@@ -68,7 +68,7 @@ The current pipeline therefore performs application build and packaging without 
 ashokcsdev/aws-devops-project:latest
 ```
 
-Docker Hub is used as a `Secondary Public Registry` .
+Docker Hub is used as a secondary Public registry.
 
 ### Amazon ECR
 
@@ -76,7 +76,7 @@ Docker Hub is used as a `Secondary Public Registry` .
 839084984521.dkr.ecr.ap-south-1.amazonaws.com/aws-devops-project:latest
 ```
 
-Amazon ECR is the `Primary Deployment Registry`.
+Amazon ECR is the Primary deployment registry.
 
 The Kubernetes deployment manifest and the running EKS deployment have been verified to use this ECR image.
 
@@ -162,6 +162,7 @@ Infrastructure automation is maintained in the second repository:
 `aws-devops-terraform-ec2`
 
 The infrastructure workflow uses GitHub Actions, GitHub OpenID Connect (OIDC), AWS Identity and Access Management (IAM), and Terraform.
+
 ### GitHub Actions and OpenID Connect
 
 The infrastructure repository uses GitHub Actions for Terraform automation.
@@ -206,6 +207,7 @@ Verified state protections:
 **Repository:** `aws-devops-terraform-ec2`
 
 This repository contains the Terraform infrastructure configuration and the GitHub Actions workflow used for infrastructure automation.
+
 ## CloudWatch Observability
 
 EKS observability is integrated using the Amazon CloudWatch observability add-on.
@@ -292,11 +294,12 @@ The project uses AWS Identity and Access Management (IAM) roles for CI/CD and in
 
 - `AdministratorAccess` was removed from the project role.
 - Scoped IAM permissions were used for the required CI/CD and infrastructure operations.
+  
 ## Verified Implementation Evidence
 
 The following implementation evidence was verified during the project:
 
-- **Jenkins Build #38:** SUCCESS
+- **Jenkins Build #40:** SUCCESS
 - **Amazon EKS Deployment:** `aws-devops-app` verified at 2/2 Ready and 2 Available
 - **Amazon ECR:** ECR image verified as the running application image
 - **CloudWatch:** `amazon-cloudwatch-observability` add-on ACTIVE with no health issues
@@ -328,6 +331,7 @@ The following implementation evidence was verified during the project:
 ### Engineering Practices
 
 CI/CD | Infrastructure as Code | Containers | Kubernetes | Observability | IAM | Remote State | Cloud Automation
+
 ## Roadmap and Future Improvements
 
 The current implementation is functional and verified. The following improvements are planned for a future iteration:
